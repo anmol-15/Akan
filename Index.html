@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akan</title>
+</head>
+<body>
+    <h1>Naming Kids</h1>
+    Century a child is born
+    <input type="text" id="century"> <br> <br>
+    Year a child is born
+    <input type="text" id="year"> <br> <br>
+    Month a child is born
+    <input type="text" id="month"> <br> <br>
+    Day of the month a child is born
+    <input type="text" id="day"> <br>
+    <p id="enter"> The Gender of the child
+   <!--  <input select name="Gender" id="G"> <br> <br> -->
+   <select name="gender" id="gender">
+        <option>Female</option>
+        <option>Male</option>
+    </select></p>
+
+
+    <button onclick="akanname()">Generate Name</button>
+
+    <p id="akan"></p>
+
+    <script>
+        function akanname() {
+            var CC = parseInt(document.getElementById("century").value)
+            var YY = parseInt(document.getElementById("year").value)
+            var MM = parseInt(document.getElementById("month").value)
+            var DD = parseInt(document.getElementById("day").value)
+            var G = document.getElementById("gender").value
+
+            var M =["Aban","Abeiku","Kojo","Aboagye","Abronoma","Acheampong","Addae","Adekorafo","Adjo"]
+            var F =["Ashon","Bediako","Bobo","Botwe","Bubune","Cablah","Coffie","Commie","Danso"]
+
+            var monthday = (((CC/4) -2*CC-1) + ((5*YY/4)) + ((26*(MM+1)/10)) + DD) % 7
+            var realmonth=parseInt(monthday)
+            //document.getElementById("akan").innerHTML=realmonth
+            if(G=="Female"){
+            document.getElementById("akan").innerHTML=F[realmonth]
+            }
+            else{
+                document.getElementById("akan").innerHTML=M[realmonth]
+            }
+        }
+    </script>
+</body>
+</html>
